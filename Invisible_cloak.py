@@ -5,8 +5,8 @@ import numpy as np
 import keyboard
 
 #Uncomment the below code to save the output. This will only save the invisible part
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
+#fourcc = cv2.VideoWriter_fourcc(*'XVID')
+#out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
 
 #To read frames from the webcam
 cap = cv2.VideoCapture(0)
@@ -74,7 +74,7 @@ while (cap.isOpened()):
         finalOutput = cv2.addWeighted(res1, 1, res2, 1, 0)
 
         #uncomment this to write an output file
-        out.write(finalOutput)
+        #out.write(finalOutput)
 
         cv2.imshow("magic", finalOutput)
         cv2.waitKey(1)
@@ -84,7 +84,7 @@ while (cap.isOpened()):
         ret, img = cap.read()
         img = np.flip(img, axis = 1)
         cv2.imshow("normal", img)
-        out.write(img)
+        #out.write(img)
         cv2.waitKey(1)
 
     #to run the normal video
@@ -94,7 +94,7 @@ while (cap.isOpened()):
         ret, img = cap.read()
         img = np.flip(img, axis=1)
         cv2.imshow("normal", img)
-        out.write(img)
+        #out.write(img)
         cv2.waitKey(1)
 
     #exit the code
@@ -104,5 +104,5 @@ while (cap.isOpened()):
 
 cap.release()
 #to save output file
-out.release()
+#out.release()
 cv2.destroyAllWindows()
